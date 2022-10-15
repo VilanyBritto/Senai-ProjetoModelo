@@ -20,7 +20,7 @@ namespace AppModelo.Model.Infra.Services
             //Instancia HTTP que permite obter informações da Internet através de uma URL
             using var http = new HttpClient();
 
-            var url = new Uri($"https://viacep.com.br/ws/{cep}/json/");
+            var url = new Uri($"https://viacep.com.br/ws/{cep}/json/"); //usa-se essa linha sempre que for para conectar a internet
             var result = http.GetAsync(url).GetAwaiter().GetResult();
 
             //Caso dê erro na camada ! = da API de Cep retorna o erro.

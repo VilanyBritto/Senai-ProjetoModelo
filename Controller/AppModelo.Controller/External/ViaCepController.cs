@@ -1,4 +1,5 @@
 ﻿using AppModelo.Model.Domain.Wrappers;
+using AppModelo.Model.Infra.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,12 @@ namespace AppModelo.Controller.External
         //Retorna a classe ViacepWapper
         public ViaCepWrapper Obter(string cep)
         {
-           var viacep = new ViaCepWrapper();
+           var service = new ViaCepService();
             //FAKE CONSULTA
-            viacep.Bairro = "Aviso";
-            viacep.Logradouro = "Filogonio Peixoto";
-            viacep.Localidade = "Linhares";
+            var viaCep = service.ObterDaApi(cep);
 
-            return viacep;
+            
+            return viaCep;
         }
     }
 }

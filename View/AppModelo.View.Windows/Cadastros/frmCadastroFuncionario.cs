@@ -1,4 +1,5 @@
 ﻿using AppModelo.Controller.External;
+using AppModelo.Model.Domain.Validators;
 using AppModelo.View.Windows.Helpers;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,64 @@ namespace AppModelo.View.Windows.Cadastros
             txtEnderecoBairro.Text = endereco.Bairro;
             txtEnderecoLogradouro.Text = endereco.Logradouro;
             txtEnderecoMunicipio.Text = endereco.Localidade;
+            txtEnderecoUf.Text = endereco.Uf;
+        }
+
+        private void txtNome_Validating(object sender, CancelEventArgs e)
+        {
+            if(txtNome.Text.Length < 6) // A propriedade Leangth consegue definir o tamanho do texto 
+            {
+                errorProvider.SetError(txtNome,"Digite seu nome completo");
+                return;
+            }
+           
+            //Foreach = erifica se digitou algum número
+            foreach(var letra in txtNome.Text) //letra por letra dentro do nome e verificar se algum é número
+            {
+                if(char.IsNumber(letra))
+                {
+                    errorProvider.SetError(txtNome, "Seu nome parece estar errado");
+                    return ;
+
+                }
+            }
+            errorProvider.Clear();
+        }
+
+        private void txtCpf_Validating(object sender, CancelEventArgs e)
+        {
+            var cpf = txtCpf.Text;
+            var cpfEhValido = Validadores.ValidarCPF(cpf); 
+            if(cpfEhValido is false)
+            {
+                errorProvider.SetError(txtCpf, "CPF Inválido");
+                return;
+            }
+            errorProvider.Clear();
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            var email = txtEmail.Text;
+            var emailEhValido = Validadores.ValidarEmail(email);
+            if (emailEhValido is false)
+            {
+                errorProvider.SetError(txtCpf, "E-mail Inválido");
+                return;
+            }
+            errorProvider.Clear();
+        }
+
+        private void txtDataNascimento_Validating(object sender, CancelEventArgs e)
+        {
+           // var dataNascimento = txtDataNascimento.Text;
+            var dataNascimentoEhValido = DateTime.Parse(txtDataNascimento.Text);
+            if (dataNascimentoEhValido < DateTime.Add
+            {
+                errorProvider.SetError(txtDataNascimento, "Data de Nascimento Inválida");
+                return;
+            }
+            errorProvider.Clear();
         }
     }
 }
