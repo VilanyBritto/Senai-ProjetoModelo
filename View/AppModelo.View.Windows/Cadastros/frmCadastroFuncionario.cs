@@ -84,7 +84,9 @@ namespace AppModelo.View.Windows.Cadastros
         {
            // var dataNascimento = txtDataNascimento.Text;
             var dataNascimentoEhValido = DateTime.Parse(txtDataNascimento.Text);
-            if (dataNascimentoEhValido < DateTime.Add
+            var dataNascimentoReal = (DateTime.Now.AddDays(1));
+            
+            if (dataNascimentoEhValido > dataNascimentoReal)
             {
                 errorProvider.SetError(txtDataNascimento, "Data de Nascimento Inválida");
                 return;
