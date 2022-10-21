@@ -1,4 +1,4 @@
-﻿namespace AppModelo.View.Windows
+﻿namespace AppModelo.View.Windows.Cadastros
 {
     partial class frmNacionalidades
     {
@@ -51,7 +51,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(39, 62);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 20);
+            this.textBox1.Size = new System.Drawing.Size(269, 20);
             this.textBox1.TabIndex = 1;
             // 
             // txtId
@@ -76,14 +76,14 @@
             this.gvNacionalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvNacionalidades.Location = new System.Drawing.Point(39, 151);
             this.gvNacionalidades.Name = "gvNacionalidades";
-            this.gvNacionalidades.Size = new System.Drawing.Size(338, 150);
+            this.gvNacionalidades.Size = new System.Drawing.Size(380, 150);
             this.gvNacionalidades.TabIndex = 6;
             // 
             // btnSalvar
             // 
             this.btnSalvar.Location = new System.Drawing.Point(272, 108);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(90, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(132, 23);
             this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 450);
+            this.ClientSize = new System.Drawing.Size(436, 450);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.gvNacionalidades);
             this.Controls.Add(this.txtDescricao);

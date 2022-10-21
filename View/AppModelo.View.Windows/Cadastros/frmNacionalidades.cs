@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppModelo.View.Windows
+namespace AppModelo.View.Windows.Cadastros
 {
     public partial class frmNacionalidades : Form
     {
