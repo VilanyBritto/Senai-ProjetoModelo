@@ -66,6 +66,7 @@
             this.naturalidadeToolStripMenuItem.Name = "naturalidadeToolStripMenuItem";
             this.naturalidadeToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.naturalidadeToolStripMenuItem.Text = "Naturalidade";
+            this.naturalidadeToolStripMenuItem.Click += new System.EventHandler(this.naturalidadeToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -73,6 +74,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 157);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrincipal";
             this.Text = "Formulário Principal";

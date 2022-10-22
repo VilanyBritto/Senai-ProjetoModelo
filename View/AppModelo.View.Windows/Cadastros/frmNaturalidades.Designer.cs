@@ -34,6 +34,7 @@
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.checkBoxAtivo = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,11 +88,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(313, 179);
             this.dataGridView1.TabIndex = 7;
             // 
+            // checkBoxAtivo
+            // 
+            this.checkBoxAtivo.AutoSize = true;
+            this.checkBoxAtivo.Location = new System.Drawing.Point(91, 48);
+            this.checkBoxAtivo.Name = "checkBoxAtivo";
+            this.checkBoxAtivo.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxAtivo.TabIndex = 8;
+            this.checkBoxAtivo.UseVisualStyleBackColor = true;
+            this.checkBoxAtivo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // frmNaturalidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 335);
+            this.Controls.Add(this.checkBoxAtivo);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtDescricao);
@@ -114,5 +126,6 @@
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.CheckBox checkBoxAtivo;
     }
 }

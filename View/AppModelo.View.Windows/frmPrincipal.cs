@@ -21,15 +21,23 @@ namespace AppModelo.View.Windows
         public void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var formFuncionario = new frmCadastroFuncionario();
-           // formFuncionario.MdiParent = this;
+            // formFuncionario.MdiParent = this;
             formFuncionario.Show();
         }
 
         private void nacionalidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var formNacionalidades = new frmNacionalidades();
-            // formFuncionario.MdiParent = this;
+             formNacionalidades.MdiParent = this;
             formNacionalidades.Show();
+        }
+
+        private void naturalidadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formNaturalidades = new frmNaturalidades();
+            formNaturalidades.MdiParent = this;
+            formNaturalidades.Show();
         }
     }
 }
+

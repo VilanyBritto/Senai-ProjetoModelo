@@ -14,7 +14,7 @@ namespace AppModelo.View.Windows.Cadastros
     
     public partial class frmNaturalidades : Form
     {
-        private NacionalidadeController _naturalidadeController = new NacionalidadeController();
+        private NaturalidadeController _naturalidadeController = new NaturalidadeController();
         public frmNaturalidades()
         {
             InitializeComponent();
@@ -25,9 +25,10 @@ namespace AppModelo.View.Windows.Cadastros
         {
             var controller = new frmNaturalidades();
             var salvou = _naturalidadeController.Cadastrar(txtDescricao.Text);
+            
             if (salvou)
             {
-                MessageBox.Show("Nacionalidade incluída com sucesso");
+                MessageBox.Show("Naturalidade incluída com sucesso");
                 txtDescricao.Text = String.Empty;
             }
             else
@@ -36,6 +37,18 @@ namespace AppModelo.View.Windows.Cadastros
                 MessageBox.Show("Houve um erro ao salvar no banco de dados");
 
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (checkBoxAtivo.Checked)
+            //{
+            //    checkBoxAtivo.Text = "Checked";
+            //}
+            //else
+            //{
+            //    checkBoxAtivo.Text = "Unchecked";
+            //}
         }
     }
 }
