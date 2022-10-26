@@ -1,29 +1,23 @@
 ﻿using AppModelo.Model.Domain.Entities;
 using AppModelo.Model.Infra.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppModelo.Controller.Cadastros
 {
     public class NaturalidadeController
     {
-        public bool Cadastrar(string descricao)
+        public bool Cadastrar(string descricao, bool status)
         {    
             var repositorio = new NaturalidadeRepository();
-            var resposta = repositorio.Inserir(descricao);
-            if (checkBoxAtivo.Checked)
-            {
-                    checkBoxAtivo.Text = "Ativo";
-            }
 
+            var naturalidade = repositorio.ObterPorDescricao(descricao);
+            if (naturalidade is not null) return false;
 
+            var resposta = repositorio.Inserir(descricao,status);
+            return resposta;
+            //var service = new Email.service();
+            // usa-se o código acima caso queira enviar e-mail ao setor para informar que houve alteração ou inclusão
 
-                //var service = new Email.service();
-                // usa-se o código acima caso queira enviar e-mail ao setor para informar que houve alteração ou inclusão
-                return resposta;
         }
 
         public List<NaturalidadeEntity> ObterTodasNaturalidades()

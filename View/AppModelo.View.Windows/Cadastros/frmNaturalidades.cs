@@ -23,10 +23,16 @@ namespace AppModelo.View.Windows.Cadastros
 
        private void btnSalvar_Click(object sender, EventArgs e)
         {
-            var controller = new frmNaturalidades();
-            var salvou = _naturalidadeController.Cadastrar(txtDescricao.Text);
+            //*não gravar repetido
+            //*não gravar com texto
+            //* todas maiusculas
+
+            //*var controller = new frmNaturalidades();
+            //*var controller = _naturalidadeController;
+            //*var salvou = _naturalidadeController.Cadastrar(txtDescricao.Text);
+           
             
-            if (salvou)
+           /* if (salvou)
             {
                 MessageBox.Show("Naturalidade incluída com sucesso");
                 txtDescricao.Text = String.Empty;
@@ -37,18 +43,25 @@ namespace AppModelo.View.Windows.Cadastros
                 MessageBox.Show("Houve um erro ao salvar no banco de dados");
 
             }
+           **/
+
+            var temNumero = Helpers.Componentes.ExisteNumeroNoTexto(txtDescricao.Text);
+
+            if (temNumero)
+            {
+                errorProvider1.SetError(txtDescricao, "Naturalidades geralmente não tem número");
+                txtDescricao.Focus();
+                return;
+            }
+
+            var controller = new NaturalidadeController();
+            var descricaoMaiuscula = txtDescricao.Text.ToUpper();
+
+            
+            var resposta = controller.Cadastrar(descricaoMaiuscula, chkStatus.Checked);
+
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            //if (checkBoxAtivo.Checked)
-            //{
-            //    checkBoxAtivo.Text = "Checked";
-            //}
-            //else
-            //{
-            //    checkBoxAtivo.Text = "Unchecked";
-            //}
-        }
+       
     }
 }

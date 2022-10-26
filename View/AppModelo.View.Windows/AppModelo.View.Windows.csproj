@@ -71,6 +71,7 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ExisteNumeroNoTexto.cs" />
     <Compile Include="Helpers\FormatarCamposObrigatorios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

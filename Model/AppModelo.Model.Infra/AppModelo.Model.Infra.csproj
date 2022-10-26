@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="_Sql\creat_table_nacionalidades.sql" />
     <Content Include="_Sql\creat_table_naturalidades.sql" />
+    <Content Include="_Sql\creat_table_usuarios.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
