@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BF7D56E2-E381-4623-A449-373B7A25A5D6}</ProjectGuid>
+    <ProjectGuid>{A99545F0-2818-44CE-8869-77A3DC5650D9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AppModelo.Controller</RootNamespace>
@@ -47,14 +47,15 @@
     <Compile Include="Class1.cs" />
     <Compile Include="External\ViaCepController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguranca\UsuarioController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Model\AppModelo.Model.Domain\AppModelo.Model.Domain.csproj">
-      <Project>{3BB6052F-C897-4886-BDDC-2DECD7BDADC0}</Project>
+      <Project>{CABD4FF9-61F6-452B-915E-DB9F5465FC90}</Project>
       <Name>AppModelo.Model.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Model\AppModelo.Model.Infra\AppModelo.Model.Infra.csproj">
-      <Project>{16B19BD5-9D3C-498E-BC02-E9FDE9312C44}</Project>
+      <Project>{D723694E-BF48-45FC-8B3B-0DC158909AF4}</Project>
       <Name>AppModelo.Model.Infra</Name>
     </ProjectReference>
   </ItemGroup>

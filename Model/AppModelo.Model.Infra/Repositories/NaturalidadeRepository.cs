@@ -4,36 +4,27 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppModelo.Model.Infra.Repositories
 {
-    public class NaturalidadeRepository // contém os comandos sql que vai ser usado no meu BD
+    public class NaturalidadeRepository
     {
-        //CRUD  =  creat(insert)  -  read (select (inserir))  -  update (update)  -  delete (delete)
         public bool Inserir(string descricao, bool status)
         {
+            var agora = DateTime.Now.ToString("u");
 
-            //String interpolation
-            var agora = DateTime.Now.ToString("u"); //*("yyyy-MM-dd H:mm:ss");
-            var sql = $"INSERT INTO naturalidades (descricao, dataCriacao, dataAlteracao, ativo) VALUES ('{descricao}','{agora}','{agora}', {agora})";
-           
+            var sql = $"INSERT INTO naturalidade " +
+                    $"(descricao, dataCriacao, dataAlteracao, ativo) " +
+                    $"VALUES " +
+                    $"('{descricao}','{agora}','{agora}', {status})";
             using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
-            var resultado = conexaoBd.Execute(sql); //creat e insert usa o comando . Execute
+            var resultado = conexaoBd.Execute(sql);
             return resultado > 0;
-           
-            //*var dataCriacao = agora;
-            //*var dataAlteracao = agora;
-            
         }
-
         public bool Atualizar()
         {
             return false;
         }
-
         public bool Remover()
         {
             return false;
@@ -41,16 +32,14 @@ namespace AppModelo.Model.Infra.Repositories
 
         public IEnumerable<NaturalidadeEntity> ObterTodos()
         {
-            var sql = "SELECT id, descricao FROM naturalidades ORDER BY descricao DESC";
-            //  var sql = "SELECT * FROM naturalidades";
+            var sql = "SELECT id, descricao FROM naturalidade ORDER BY descricao DESC";
+
             using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
 
             var resultado = conexaoBd.Query<NaturalidadeEntity>(sql);
-            // se for select, obterporId, ObterTodos usa-se o Query
+
             return resultado;
-
         }
-
         public IEnumerable<NaturalidadeEntity> ObterTodosAtivos()
         {
             var sql = "SELECT id, descricao FROM naturalidade WHERE ativo = true";
@@ -77,4 +66,3 @@ namespace AppModelo.Model.Infra.Repositories
         }
     }
 }
-

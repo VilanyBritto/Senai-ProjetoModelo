@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1BA95CE6-A028-4704-A97F-5EFCA2CC9D9F}</ProjectGuid>
+    <ProjectGuid>{A05DF04A-C4B5-4762-8EED-8CC5EB1B5CA2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>AppModelo.View.Windows</RootNamespace>
     <AssemblyName>AppModelo.View.Windows</AssemblyName>
@@ -59,11 +59,17 @@
     <Compile Include="Cadastros\frmNacionalidades.Designer.cs">
       <DependentUpon>frmNacionalidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\frmNaturalidades.cs">
+    <Compile Include="Cadastros\frmNaturalidade.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\frmNaturalidades.Designer.cs">
-      <DependentUpon>frmNaturalidades.cs</DependentUpon>
+    <Compile Include="Cadastros\frmNaturalidade.Designer.cs">
+      <DependentUpon>frmNaturalidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -71,7 +77,13 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ExisteNumeroNoTexto.cs" />
+    <Compile Include="frmRecuperarSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecuperarSenha.Designer.cs">
+      <DependentUpon>frmRecuperarSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\BuscarSeExisteNumeroNoTexto.cs" />
     <Compile Include="Helpers\FormatarCamposObrigatorios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,11 +93,17 @@
     <EmbeddedResource Include="Cadastros\frmNacionalidades.resx">
       <DependentUpon>frmNacionalidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastros\frmNaturalidades.resx">
-      <DependentUpon>frmNaturalidades.cs</DependentUpon>
+    <EmbeddedResource Include="Cadastros\frmNaturalidade.resx">
+      <DependentUpon>frmNaturalidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecuperarSenha.resx">
+      <DependentUpon>frmRecuperarSenha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,6 +113,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -111,17 +130,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Controller\AppModelo.Controller\AppModelo.Controller.csproj">
-      <Project>{BF7D56E2-E381-4623-A449-373B7A25A5D6}</Project>
+      <Project>{A99545F0-2818-44CE-8869-77A3DC5650D9}</Project>
       <Name>AppModelo.Controller</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Model\AppModelo.Model.Domain\AppModelo.Model.Domain.csproj">
-      <Project>{3bb6052f-c897-4886-bddc-2decd7bdadc0}</Project>
+      <Project>{cabd4ff9-61f6-452b-915e-db9f5465fc90}</Project>
       <Name>AppModelo.Model.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Model\AppModelo.Model.Infra\AppModelo.Model.Infra.csproj">
-      <Project>{16b19bd5-9d3c-498e-bc02-e9fde9312c44}</Project>
+      <Project>{d723694e-bf48-45fc-8b3b-0dc158909af4}</Project>
       <Name>AppModelo.Model.Infra</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_para_fundo_branco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_para_fundo_escuro.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

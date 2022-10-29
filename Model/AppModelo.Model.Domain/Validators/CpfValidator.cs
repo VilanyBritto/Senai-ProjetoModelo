@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AppModelo.Model.Domain.Validators
+﻿namespace AppModelo.Model.Domain.Validators
 {
     public static partial class Validadores
     {
@@ -100,11 +94,5 @@ namespace AppModelo.Model.Domain.Validators
         }
         public static bool ValidarCPF(Cpf sourceCPF) =>
             sourceCPF.EhValido;
-
-        public static object ValidarEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
-

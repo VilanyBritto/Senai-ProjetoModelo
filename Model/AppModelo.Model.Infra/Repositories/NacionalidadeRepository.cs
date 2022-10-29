@@ -1,50 +1,45 @@
 ﻿using AppModelo.Model.Domain.Entities;
-using Dapper;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Data;
+using Dapper;
 
 namespace AppModelo.Model.Infra.Repositories
 {
-    public class NacionalidadeRepository // contém os comandos sql que vai ser usado no meu BD
-    {
-        //CRUD  =  creat(insert)  -  read (select (inserir))  -  update (update)  -  delete (delete)
-        public bool Inserir(string descricao) 
+    public class NacionalidadeRepository
+    {   
+        //CRUD - create - read   - update - delete
+        //       insert - select - update - delete  
+        public bool Inserir(string descricao)
         {
-            
-            //String interpolation
+            //string interpolation
             var sql = $"INSERT INTO nacionalidades (descricao) VALUES ('{descricao}')";
             using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
-            var resultado = conexaoBd.Execute(sql); //creat e insert usa o comando . Execute
+            var resultado = conexaoBd.Execute(sql);
             return resultado > 0;
         }
-
         public bool Atualizar() 
         {
             return false;
         }
-
         public bool Remover() 
         {
             return false;
         }
-
-        public IEnumerable<NacionalidadeEntity> ObterTodos() 
+        public IEnumerable<NacionalidadeEntity> ObterTodos()
         {
             var sql = "SELECT id, descricao FROM nacionalidades ORDER BY descricao DESC";
-          //  var sql = "SELECT * FROM nacionalidades";
-            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
-
-            var resultado = conexaoBd.Query<NacionalidadeEntity>(sql);
-            // se for select, obterporId, ObterTodos usa-se o Query
-            return resultado;
             
-        }
+            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
+            
+            var resultado = conexaoBd.Query<NacionalidadeEntity>(sql);
 
-        public NacionalidadeEntity ObterPorId()
+            return resultado;
+        }
+        public NacionalidadeEntity ObterPorId() 
         {
             return new NacionalidadeEntity();
-        }        
-     
+        }
+
     }
 }

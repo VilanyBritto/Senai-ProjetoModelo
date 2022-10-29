@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3BB6052F-C897-4886-BDDC-2DECD7BDADC0}</ProjectGuid>
+    <ProjectGuid>{CABD4FF9-61F6-452B-915E-DB9F5465FC90}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AppModelo.Model.Domain</RootNamespace>
@@ -45,12 +45,12 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\NacionalidadeEntity.cs" />
     <Compile Include="Entities\NaturalidadeEntity.cs" />
+    <Compile Include="Entities\UsuarioEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\CpfValidator.cs" />
     <Compile Include="Validators\EmailValidator.cs" />
     <Compile Include="Wrappers\EntidadeBase.cs" />
     <Compile Include="Wrappers\ViaCepWrapper.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
