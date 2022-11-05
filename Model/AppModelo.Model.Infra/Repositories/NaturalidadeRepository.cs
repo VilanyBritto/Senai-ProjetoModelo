@@ -1,9 +1,11 @@
 ﻿using AppModelo.Model.Domain.Entities;
 using Dapper;
 using MySql.Data.MySqlClient;
+using MySql.Data.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AppModelo.Model.Infra.Repositories
 {
@@ -13,56 +15,36 @@ namespace AppModelo.Model.Infra.Repositories
         {
             var agora = DateTime.Now.ToString("u");
 
-            var sql = $"INSERT INTO naturalidade " +
-                    $"(descricao, dataCriacao, dataAlteracao, ativo) " +
-                    $"VALUES " +
-                    $"('{descricao}','{agora}','{agora}', {status})";
-            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
+            var sql = $"INSERT INTO naturalidades (descricao, dataCriacao, dataAlteracao, ativo) VALUES ('{descricao}', '{agora}', '{agora}', {status})";
+            
+            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConnectionString());
+
             var resultado = conexaoBd.Execute(sql);
+
             return resultado > 0;
         }
-        public bool Atualizar()
-        {
-            return false;
-        }
-        public bool Remover()
-        {
-            return false;
-        }
 
-        public IEnumerable<NaturalidadeEntity> ObterTodos()
+        public IEnumerable<NaturalidadeEntity> ObterTodasNaturalidades()
         {
-            var sql = "SELECT id, descricao FROM naturalidade ORDER BY descricao DESC";
+            var sql = "SELECT id, descricao, dataCriacao, dataAlteracao, ativo FROM naturalidades";
 
-            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
-
+            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConnectionString());
+            
             var resultado = conexaoBd.Query<NaturalidadeEntity>(sql);
 
             return resultado;
         }
-        public IEnumerable<NaturalidadeEntity> ObterTodosAtivos()
+
+        public NaturalidadeEntity ObterPorDescricao(string descricao, bool status)
         {
-            var sql = "SELECT id, descricao FROM naturalidade WHERE ativo = true";
-
-            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
-
-            var resultado = conexaoBd.Query<NaturalidadeEntity>(sql);
-
-            return resultado;
-        }
-        public NacionalidadeEntity ObterPorId()
-        {
-            return new NacionalidadeEntity();
-        }
-        public NaturalidadeEntity ObterPorDescricao(string descricao)
-        {
-            var sql = $"SELECT id, descricao FROM naturalidade WHERE descricao = '{descricao}' ";
-
-            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
+            var sql = $"SELECT descricao FROM naturalidades WHERE descricao = '{descricao}'";
+            
+            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConnectionString());
 
             var resultado = conexaoBd.QuerySingleOrDefault<NaturalidadeEntity>(sql);
 
             return resultado;
         }
+
     }
 }

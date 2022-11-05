@@ -2,9 +2,9 @@
 {
     public static class MySql
     {
-        public static string ConectionString()
+        public static string ConnectionString()
         {
-            var conn = "server=mysql.wwonline.com.br;database=wwonline14;uid=wwonline14;password=aluno22senai;";
+            var conn = "server=mysql.wwonline.com.br;database=wwonline03;uid=wwonline03;password=aluno22senai;";
             return conn;
         }
     }

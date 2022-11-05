@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A05DF04A-C4B5-4762-8EED-8CC5EB1B5CA2}</ProjectGuid>
+    <ProjectGuid>{1D42E954-F544-4E44-B108-C99335033726}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>AppModelo.View.Windows</RootNamespace>
     <AssemblyName>AppModelo.View.Windows</AssemblyName>
@@ -47,23 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cadastros\frmCadastroFuncionario.cs">
+    <Compile Include="Atualizar\frmAtualizarNacionalidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\frmCadastroFuncionario.Designer.cs">
+    <Compile Include="Atualizar\frmAtualizarNacionalidades.Designer.cs">
+      <DependentUpon>frmAtualizarNacionalidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastro\frmCadastroFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastro\frmCadastroFuncionario.Designer.cs">
       <DependentUpon>frmCadastroFuncionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\frmNacionalidades.cs">
+    <Compile Include="Cadastro\frmNacionalidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\frmNacionalidades.Designer.cs">
+    <Compile Include="Cadastro\frmNacionalidades.Designer.cs">
       <DependentUpon>frmNacionalidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\frmNaturalidade.cs">
+    <Compile Include="Cadastro\frmNaturalidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\frmNaturalidade.Designer.cs">
-      <DependentUpon>frmNaturalidade.cs</DependentUpon>
+    <Compile Include="Cadastro\frmNaturalidades.Designer.cs">
+      <DependentUpon>frmNaturalidades.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -83,18 +89,21 @@
     <Compile Include="frmRecuperarSenha.Designer.cs">
       <DependentUpon>frmRecuperarSenha.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\BuscarSeExisteNumeroNoTexto.cs" />
-    <Compile Include="Helpers\FormatarCamposObrigatorios.cs" />
+    <Compile Include="Helpers\CharEhNumero.cs" />
+    <Compile Include="Helpers\Componentes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Cadastros\frmCadastroFuncionario.resx">
+    <EmbeddedResource Include="Atualizar\frmAtualizarNacionalidades.resx">
+      <DependentUpon>frmAtualizarNacionalidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastro\frmCadastroFuncionario.resx">
       <DependentUpon>frmCadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastros\frmNacionalidades.resx">
+    <EmbeddedResource Include="Cadastro\frmNacionalidades.resx">
       <DependentUpon>frmNacionalidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastros\frmNaturalidade.resx">
-      <DependentUpon>frmNaturalidade.cs</DependentUpon>
+    <EmbeddedResource Include="Cadastro\frmNaturalidades.resx">
+      <DependentUpon>frmNaturalidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -113,7 +122,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -130,23 +138,17 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Controller\AppModelo.Controller\AppModelo.Controller.csproj">
-      <Project>{A99545F0-2818-44CE-8869-77A3DC5650D9}</Project>
+      <Project>{4F0DC13E-E5A1-4DF7-901F-53DA71D3EB59}</Project>
       <Name>AppModelo.Controller</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Model\AppModelo.Model.Domain\AppModelo.Model.Domain.csproj">
-      <Project>{cabd4ff9-61f6-452b-915e-db9f5465fc90}</Project>
+      <Project>{81c876d5-fea3-4d1f-af48-6962c6b987db}</Project>
       <Name>AppModelo.Model.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Model\AppModelo.Model.Infra\AppModelo.Model.Infra.csproj">
-      <Project>{d723694e-bf48-45fc-8b3b-0dc158909af4}</Project>
+      <Project>{a98c4809-5a97-423f-957d-9259e53bbd08}</Project>
       <Name>AppModelo.Model.Infra</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Logo_para_fundo_branco.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Logo_para_fundo_escuro.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

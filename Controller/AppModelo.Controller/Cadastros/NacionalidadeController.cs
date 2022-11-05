@@ -1,5 +1,6 @@
 ﻿using AppModelo.Model.Domain.Entities;
 using AppModelo.Model.Infra.Repositories;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace AppModelo.Controller.Cadastros
@@ -18,6 +19,13 @@ namespace AppModelo.Controller.Cadastros
             var repositorio = new NacionalidadeRepository();
             var resposta = repositorio.ObterTodos();
             return (List<NacionalidadeEntity>)resposta;
+        }
+
+        public bool AtualizarDado(int id, string descricao)
+        {
+            var repositorio = new NacionalidadeRepository();
+            var resposta = repositorio.Atualizar(id, descricao);
+            return resposta;
         }
     }
 }

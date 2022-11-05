@@ -8,9 +8,10 @@ namespace AppModelo.Model.Infra.Services
 {
     public class ViaCepService
     {
+
         public ViaCepWrapper ObterDaApi(string cep)
         {
-            //Como o metodo precisa retornar um ViaCepWrapper, é criada uma instancia vazia para retornar ela caso dê erro.
+            //Como o metodo precisa retornar um ViaCepWrapper, é criada um instancia vazia para retornar ela caso dê erro.
             var cepWrapper = new ViaCepWrapper();
 
             //Instancia HTTP que permite obter informações da Internet através de uma URL
