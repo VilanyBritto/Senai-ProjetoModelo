@@ -47,12 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Atualizar\frmAtualizarNacionalidades.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Atualizar\frmAtualizarNacionalidades.Designer.cs">
-      <DependentUpon>frmAtualizarNacionalidades.cs</DependentUpon>
-    </Compile>
     <Compile Include="Cadastro\frmCadastroFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,9 +87,6 @@
     <Compile Include="Helpers\Componentes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Atualizar\frmAtualizarNacionalidades.resx">
-      <DependentUpon>frmAtualizarNacionalidades.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Cadastro\frmCadastroFuncionario.resx">
       <DependentUpon>frmCadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +113,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -149,6 +141,21 @@
       <Project>{a98c4809-5a97-423f-957d-9259e53bbd08}</Project>
       <Name>AppModelo.Model.Infra</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zyro-image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zyro-image %281%29c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zyro-image %281%296.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

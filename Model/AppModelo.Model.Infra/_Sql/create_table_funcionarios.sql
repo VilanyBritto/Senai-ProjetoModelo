@@ -16,6 +16,8 @@
 --	fk_nacionalidade int NOT NULL,
 --	fk_naturalidade int NOT NULL,
 --	FOREIGN KEY (fk_naturalidade) REFERENCES naturalidades(id),
---	FOREIGN KEY (fk_nacionalidade) REFERENCES nacionalidades(id)
-	
-);
+--	FOREIGN KEY (fk_nacionalidade) REFERENCES nacionalidades(id) );
+
+
+--SELECT id, nome_completo, data_nascimento, sexo, email, telefone, telefone_contato, cpf, cep, logradouro, numero, complemento, bairro, municipio, uf, fk_nacionalidade, fk_naturalidade
+--FROM wwonline14.funcionarios;

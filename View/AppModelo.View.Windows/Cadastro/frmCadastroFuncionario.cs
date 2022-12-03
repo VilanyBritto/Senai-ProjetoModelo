@@ -95,33 +95,94 @@ namespace AppModelo.View.Windows.Cadastro
 
         private void txtDataNascimento_Validated(object sender, EventArgs e)
         {
-            var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
-            var dataHoje = DateTime.Now;
-
-            if(dataNascimento > dataHoje)
+            try
             {
-                errorProvider.SetError(txtDataNascimento, "Você não pode informar a data de hoje");
-                return;
-            }
+                var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
+                var dataHoje = DateTime.Now;
 
-            errorProvider.Clear();
+                if (dataNascimento > dataHoje)
+                {
+                    errorProvider.SetError(txtDataNascimento, "Você não pode informar a data de hoje");
+                    return;
+                }
+
+                errorProvider.Clear();
+            }
+            catch (Exception x)
+            {
+
+                MessageBox.Show(x.Message);
+            }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
-            int numero = int.Parse(txtEnderecoNumero.Text);
-
-            var salvou = _funcionarioController.Cadastrar(txtNome.Text, dataNascimento, rbMasculino.Checked, txtCpf.Text, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text, txtCep.Text, txtEnderecoLogradouro.Text, numero, txtEnderecoComplemento.Text, txtEnderecoBairro.Text, txtEnderecoMunicipio.Text, txtEnderecoUf.Text, 1, 1);
-
-            if (salvou)
+            try
             {
-                MessageBox.Show("Cadastrado com sucesso");
+                var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
+                int numero = int.Parse(txtEnderecoNumero.Text);
+                char sexo = rbMasculino.Checked ? 'M' : 'F';
+                var salvou = _funcionarioController.Cadastrar(txtNome.Text, dataNascimento, sexo, txtCpf.Text, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text, txtCep.Text, txtEnderecoLogradouro.Text, numero, txtEnderecoComplemento.Text, txtEnderecoBairro.Text, txtEnderecoMunicipio.Text, txtEnderecoUf.Text, 1, 1);
+
+                if (salvou)
+                {
+                    MessageBox.Show("Cadastrado com sucesso");
+                    limpaForm();
+
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar usuário");
+                }
             }
-            else
+            catch (Exception x)
             {
-                MessageBox.Show("Erro ao cadastrar usuário");
+
+                MessageBox.Show(x.Message);
             }
         }
+        
+        void limpaForm()
+        {
+            txtNome.Text = "";
+            txtDataNascimento.Text = "";
+            txtCpf.Text = "";
+            cmbNacionalidade.SelectedIndex = -1; //-1 pois a base é 0, quero carregar com algo que não está na lista.
+            cmbNaturalidade.SelectedIndex = -1;
+            txtEmail.Text = "";
+            txtTelefone.Text = "";
+            txtCep.Text = "";
+            txtEnderecoLogradouro.Text = "";
+            txtEnderecoNumero.Text = "";
+            txtEnderecoComplemento.Text = "";
+            txtEnderecoBairro.Text = "";
+            txtEnderecoMunicipio.Text = "";
+            txtEnderecoUf.Text = "";
+
+            txtNome.Focus();
+        }
+
+        private void btnAtualizarFuncionario_Click(object sender, EventArgs e)
+        {
+            char sexo = rbMasculino.Checked ? 'M' : 'F'; // Expressão Operador ternário, tenho variavel do tipo caracter (pesquisar)
+            var atualizarDado = _funcionarioController.AtualizarCadastroFuncionario(
+            int.Parse(txtId.Text), txtNome.Text, DateTime.Parse(txtDataNascimento.Text), sexo, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text,
+            txtCep.Text, txtEnderecoLogradouro.Text, int.Parse(txtEnderecoNumero.Text), txtEnderecoComplemento.Text, txtEnderecoBairro.Text,
+            txtEnderecoMunicipio.Text, txtEnderecoUf.Text, cmbNaturalidade.SelectedIndex);
+               
+
+            if (atualizarDado = true)
+            {
+                MessageBox.Show("Dado atualizado com sucesso", "Sucesso ao atualizar!" + MessageBoxIcon.Information + MessageBoxButtons.OK);
+                
+            }
+
+            else
+            {
+                MessageBox.Show("Ocorreu um poblema ao atualizar o dado, tente novamente.", "Problema ao atualizar!!" + MessageBoxIcon.Error + MessageBoxButtons.OK);
+            }
+        }
+
+       
     }
 }

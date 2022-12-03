@@ -19,8 +19,7 @@ namespace AppModelo.View.Windows
             InitializeComponent();
             txtEmail.Text = "vilanybritto@gmail.com";
             txtSenha.Text = "JESUS100";
-            // txtEmail.Text = "diogo@email.com";
-            //txtSenha.Text = "E16E4649";
+           
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)

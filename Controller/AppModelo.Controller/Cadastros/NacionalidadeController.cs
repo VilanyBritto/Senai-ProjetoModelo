@@ -2,6 +2,8 @@
 using AppModelo.Model.Infra.Repositories;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
+using System.Windows.Forms;
 
 namespace AppModelo.Controller.Cadastros
 {
@@ -26,6 +28,12 @@ namespace AppModelo.Controller.Cadastros
             var repositorio = new NacionalidadeRepository();
             var resposta = repositorio.Atualizar(id, descricao);
             return resposta;
+        }
+        public void Deletar(int id)
+        {
+            var repositorio = new NacionalidadeRepository();
+            repositorio.Deletar(id);
+            //return resposta;
         }
     }
 }
