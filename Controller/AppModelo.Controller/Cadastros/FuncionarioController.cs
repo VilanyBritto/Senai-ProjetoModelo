@@ -2,13 +2,12 @@
 using AppModelo.Model.Infra.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static AppModelo.Model.Domain.Validators.Validadores;
 
 namespace AppModelo.Controller.Cadastros
 {
+    /// <summary>
+    /// Essa classe é a camada responsável pelo processo, respostas e requisições do frmCadastroFuncionario
+    /// </summary>
     public class FuncionarioController
     {
         public bool Cadastrar(string nome, DateTime dataNascimento, char sexo, string cpf, string email, string telefone, string telefone_contato, string cep, string logradouro, int numero, string complemento, string bairro, string municipio, string uf, int nacionalidade, int naturalidade)

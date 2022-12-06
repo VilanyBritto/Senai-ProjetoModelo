@@ -6,6 +6,9 @@ using System.Data;
 
 namespace AppModelo.Model.Infra.Repositories
 {
+    /// <summary>
+    ///  Essa classe é a camada responsável pela comunicação do formulário frmNacionalidades com o banco de dados.
+    /// </summary>
     public class NacionalidadeRepository
     {
         //CRUD - create - read - update - delete

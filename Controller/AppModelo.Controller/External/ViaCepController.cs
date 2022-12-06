@@ -3,6 +3,9 @@ using AppModelo.Model.Infra.Services;
 
 namespace AppModelo.Controller.External
 {
+    /// <summary>
+    /// Retorna a classe ViaCepWrapper
+    /// </summary>
     public class ViaCepController
     {
         //Retorna a classe ViaCepWrapper

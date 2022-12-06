@@ -1,7 +1,15 @@
 ﻿namespace AppModelo.Model.Domain.Validators
 {
+    /// <summary>
+    /// Essa classe aplica as rotinas de validações de CPF. Essas validações de informações digitadas pelos usuários é uma regra. Nesta classe vamos definir
+    /// os membros dela public static partial class ou classe parcial, definimos a classe em partes separadas.
+    /// </summary>
     public static partial class Validadores
     {
+        /// <summary>
+        /// Esse método public struc (Registro(s)) definem tipos de dados que agrupam variáveis sob um mesmo tipo de dado, com o propósito de permitir usar uma única 
+        /// variável ao armazenar os dados da mesma entidade.
+        /// </summary>
         public struct Cpf
         {
             private readonly string _value;

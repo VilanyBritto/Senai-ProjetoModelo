@@ -12,6 +12,9 @@ using System.Windows.Forms;
 
 namespace AppModelo.View.Windows.Cadastro
 {
+    /// <summary>
+    /// Essa tela tem finalidade de cadastrar a naturalidade para ser representada por meio de ID no formulário de cadastro quando solicitada.
+    /// </summary>
     public partial class frmNaturalidades : Form
     {    
         private NaturalidadeController _naturalidadeController = new NaturalidadeController();
@@ -27,6 +30,11 @@ namespace AppModelo.View.Windows.Cadastro
 
         }
 
+        /// <summary>
+        ///  A lista tem os dados carregados atualizados de naturalidade em tela após cadastro, atualização ou exclusão.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (txtDescricao.Text != "")
@@ -56,6 +64,11 @@ namespace AppModelo.View.Windows.Cadastro
             }
         }
 
+        /// <summary>
+        /// Método para atualizar os dados de naturalidade e apresentar em lista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAtualizarNaturalidade_Click(object sender, EventArgs e)
         {
             int id = int.Parse(txtId.Text);
@@ -74,6 +87,11 @@ namespace AppModelo.View.Windows.Cadastro
             }
         }
 
+        /// <summary>
+        /// Método para deletar os dados de naturalidade e apresentar a lista atualizada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeletarNaturalidade_Click(object sender, EventArgs e)
         {
             int id = int.Parse(txtId.Text);
@@ -92,6 +110,10 @@ namespace AppModelo.View.Windows.Cadastro
             }
            
         }
+        /// <summary>
+        /// Tem a função de atualizar os dados e apresentar na Grid, null limpa os dados do DataGrid, o método _naturalidadeController.ObterTodasNaturalidades()
+        /// apresenta a lista atualizada
+        /// </summary>
         void atualizaGrid()
         {
             gvNaturalidades.DataSource = null;

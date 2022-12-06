@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppModelo.Model.Domain.Entities
 {
+    /// <summary>
+    /// Implementação da classe  UsuarioEntity com suas propriedades, esse modelo irá espelhar as tabelas do banco de dados.
+    /// </summary>
     public class UsuarioEntity
     {
         public int Id { get; set; }

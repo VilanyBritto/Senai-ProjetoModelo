@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace AppModelo.Controller.Cadastros
 {
+    /// <summary>
+    /// Essa classe é a camada responsável pelo processo, respostas e requisições do frmNaturalidades
+    /// </summary>
     public class NaturalidadeController
     {
         public bool Cadastrar(string descricao, bool status)

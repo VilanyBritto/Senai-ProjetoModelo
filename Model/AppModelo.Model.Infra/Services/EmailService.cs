@@ -5,8 +5,20 @@ using System;
 
 namespace AppModelo.Model.Infra.Services
 {
+    /// <summary>
+    /// Essa classe é a responsável pelas regras de negócios que compõem o serviço de e-mail,usada para enviar e-mail para um servidor.
+    /// </summary>
     public class EmailService
     {
+        /// <summary>
+        /// Método para enviar e-mail ao destinatário via servidor usando recuros de tratativas de erro como o try catch para conseguir realizar 
+        /// o precessamento
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <param name="email"></param>
+        /// <param name="assunto"></param>
+        /// <param name="mensagem"></param>
+        /// <returns></returns>
         public bool EnviarEmail(string nome, string email, string assunto, string mensagem)
         {
             try

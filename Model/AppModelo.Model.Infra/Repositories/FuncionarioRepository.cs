@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace AppModelo.Model.Infra.Repositories
 {
+    /// <summary>
+    /// Essa classe é a camada responsável pela comunicação do formulário frmCadastroFuncionario com o banco de dados
+    /// </summary>
     public class FuncionarioRepository
     {
         public bool Inserir(string nome, DateTime dataNascimento, char sexo, string cpf, string email, string telefone, string telefone_contato, string cep, string logradouro, int numero, string complemento, string bairro, string municipio, string uf, int nacionalidade, int naturalidade)

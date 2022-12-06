@@ -9,6 +9,9 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace AppModelo.Model.Infra.Repositories
 {
+    /// <summary>
+    /// Essa classe é a camada responsável pela comunicação do formulário frmNaturalidades com o banco de dados.
+    /// </summary>
     public class NaturalidadeRepository
     {
         public bool Inserir(string descricao, bool status)

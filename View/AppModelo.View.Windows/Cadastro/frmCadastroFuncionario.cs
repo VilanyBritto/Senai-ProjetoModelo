@@ -9,12 +9,23 @@ using System.Windows.Forms;
 
 namespace AppModelo.View.Windows.Cadastro
 {
+    /// <summary>
+    /// Este formulátio permite o usuário a rotina  de castrastro, atualização ou detelar dados do funcionário por meio da tela de FUNCIONARIO localizada
+    /// dentro do menu CADASTRO na tela principal. Essa rotina processa validações com classes do Controller de cadastro interno, externo e de segurança,
+    ///controles relacionados com classes da Model entidade,classes de validação de cpf e e-mail, sql banco de dados, e classe do repositorio.
+    /// 
+    /// </summary>
     public partial class frmCadastroFuncionario : Form
     {
         private FuncionarioController _funcionarioController = new FuncionarioController();
         private NacionalidadeController _nacionalidadeController = new NacionalidadeController();
         private NaturalidadeController _naturalidadeController = new NaturalidadeController();
 
+
+        /// <summary>
+        /// O construtor está instanciando três classes: FuncionárioController(),NacionalidadeController(), NaturalidadeController(). 
+        /// O InitializeComponent() inicializa os campos cmbNacionalidade e cmbNaturalidade é reconhecida com dado da lista.
+        /// </summary>
         public frmCadastroFuncionario()
         {
             InitializeComponent();
@@ -27,6 +38,12 @@ namespace AppModelo.View.Windows.Cadastro
             cmbNaturalidade.DisplayMember = "Descricao";
         }
 
+        /// <summary>
+        /// Classe instanciada
+        /// Recebo os dados do metódo para obter o endereço
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPesquisarCep_Click(object sender, EventArgs e)
         {
             //Classe instanciada
@@ -42,6 +59,12 @@ namespace AppModelo.View.Windows.Cadastro
 
         }
 
+        /// <summary>
+        /// Primeira regra para verificar se o nome é < que 6 letras.
+        /// verifica se digitou algum número.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNome_Validating(object sender, CancelEventArgs e)
         {
             // primeira regra para verificar se o nome é < que 6 letras.
@@ -65,6 +88,11 @@ namespace AppModelo.View.Windows.Cadastro
 
         }
 
+        /// <summary>
+        /// Validação do controle do dado cpf.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCpf_Validating(object sender, CancelEventArgs e)
         {
             var cpf = txtCpf.Text;
@@ -79,6 +107,11 @@ namespace AppModelo.View.Windows.Cadastro
             errorProvider.Clear();
         }
 
+        /// <summary>
+        ///  Validação do controle do dado e-mail.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
             var email = txtEmail.Text;
@@ -92,7 +125,11 @@ namespace AppModelo.View.Windows.Cadastro
 
             errorProvider.Clear();
         }
-
+        /// <summary>
+        ///  Validação do dado data de nascimento, conversão e instanciando a classe DateTime.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDataNascimento_Validated(object sender, EventArgs e)
         {
             try
@@ -141,7 +178,9 @@ namespace AppModelo.View.Windows.Cadastro
                 MessageBox.Show(x.Message);
             }
         }
-        
+        /// <summary>
+        /// Limpar os campos após confirmar cadastro no botão Cadastrar (btnCadastrar), direcionar o foco notxtNome para novo cadastro.
+        /// </summary>
         void limpaForm()
         {
             txtNome.Text = "";
@@ -162,6 +201,12 @@ namespace AppModelo.View.Windows.Cadastro
             txtNome.Focus();
         }
 
+        /// <summary>
+        /// Método atualizar dados de cadatro do formulário de cadastro do funcionário, o campo cpf e nacionalidade só poderá ser atualizado em caracter de exceção 
+        /// exceção
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAtualizarFuncionario_Click(object sender, EventArgs e)
         {
             char sexo = rbMasculino.Checked ? 'M' : 'F'; // Expressão Operador ternário, tenho variavel do tipo caracter (pesquisar)

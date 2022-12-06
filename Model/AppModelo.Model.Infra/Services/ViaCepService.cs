@@ -6,8 +6,18 @@ using System.Net.Http;
 
 namespace AppModelo.Model.Infra.Services
 {
+    /// <summary>
+    /// Essa classe é a responsável pelas regras de negócios que compõem o serviço de cep.
+    /// </summary>
     public class ViaCepService
     {
+        /// <summary>
+        /// Como o metodo precisa retornar um ViaCepWrapper, é criada uma  instancia vazia para retornar ela caso dê erro: var cepWrapper = new ViaCepWrapper();.
+        /// Instancia HTTP que permite obter informações da Internet através de uma URL:  using var http = new HttpClient();
+        /// If: condição caso dê erro na camada diferente da API de Cep retorna o erro. Variável resultContent converte o resultado obtido em uma string.
+        /// </summary>
+        /// <param name="cep"></param>
+        /// <returns></returns>
 
         public ViaCepWrapper ObterDaApi(string cep)
         {

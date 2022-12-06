@@ -68,21 +68,21 @@
             // novoFuncionárioToolStripMenuItem
             // 
             this.novoFuncionárioToolStripMenuItem.Name = "novoFuncionárioToolStripMenuItem";
-            this.novoFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(277, 36);
-            this.novoFuncionárioToolStripMenuItem.Text = "Novo funcionário";
+            this.novoFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(250, 36);
+            this.novoFuncionárioToolStripMenuItem.Text = "Funcionário";
             this.novoFuncionárioToolStripMenuItem.Click += new System.EventHandler(this.novoFuncionárioToolStripMenuItem_Click);
             // 
             // nacionalidadeToolStripMenuItem
             // 
             this.nacionalidadeToolStripMenuItem.Name = "nacionalidadeToolStripMenuItem";
-            this.nacionalidadeToolStripMenuItem.Size = new System.Drawing.Size(277, 36);
+            this.nacionalidadeToolStripMenuItem.Size = new System.Drawing.Size(250, 36);
             this.nacionalidadeToolStripMenuItem.Text = "Nacionalidade";
             this.nacionalidadeToolStripMenuItem.Click += new System.EventHandler(this.nacionalidadeToolStripMenuItem_Click);
             // 
             // naturalidadeToolStripMenuItem
             // 
             this.naturalidadeToolStripMenuItem.Name = "naturalidadeToolStripMenuItem";
-            this.naturalidadeToolStripMenuItem.Size = new System.Drawing.Size(277, 36);
+            this.naturalidadeToolStripMenuItem.Size = new System.Drawing.Size(250, 36);
             this.naturalidadeToolStripMenuItem.Text = "Naturalidade";
             this.naturalidadeToolStripMenuItem.Click += new System.EventHandler(this.naturalidadeToolStripMenuItem_Click);
             // 
@@ -142,7 +142,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

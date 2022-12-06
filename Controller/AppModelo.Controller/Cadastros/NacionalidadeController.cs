@@ -1,12 +1,12 @@
 ﻿using AppModelo.Model.Domain.Entities;
 using AppModelo.Model.Infra.Repositories;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
-using System.Windows.Forms;
 
 namespace AppModelo.Controller.Cadastros
 {
+    /// <summary>
+    /// Essa classe é a camada responsável pelo processo, respostas e requisições do frmNacionalidades
+    /// </summary>
     public class NacionalidadeController
     {
         public bool Cadastrar(string descricao)

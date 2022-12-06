@@ -3,6 +3,9 @@ using System;
 
 namespace AppModelo.Model.Domain.Entities
 {
+    /// <summary>
+    /// Implementação da classe  NaturalidadeEntity com suas propriedades, esse modelo irá espelhar as tabelas do banco de dados.
+    /// </summary>
     public class NaturalidadeEntity
     {
         public int Id { get; set; }
