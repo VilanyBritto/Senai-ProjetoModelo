@@ -6,7 +6,7 @@
     {
         public static string ConnectionString()
         {
-            var conn = "server=mysql.wwonline.com.br;database=wwonline14;uid=wwonline14;password=aluno22senai;";
+            var conn = "server=mysql.wwonline.com.br;database=wwonline14;uid=wwonline14;password=aluno22senai;convert zero datetime=True";
             return conn;
         }
     }

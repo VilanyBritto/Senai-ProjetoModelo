@@ -36,15 +36,18 @@ namespace AppModelo.Model.Infra.Repositories
         }
         public bool Atualizar(int id, string nome, DateTime dataNascimento, char sexo, string email, string telefone, string telefone_contato, string cep, string logradouro, int numero, string complemento, string bairro, string municipio, string uf, int naturalidade)
         {
-            var sql = $"UPDATE funcionarios SET nome_completo = '{nome}', data_nascimento= '{dataNascimento}', sexo='{sexo}', email='{email}', telefone ='{telefone}', telefone_contato= '{telefone_contato}', cep='{cep}',logradouro='{logradouro}',numero={numero},complemento='{bairro}',municipio='{municipio}',uf='{uf}',fk_naturalidade= '{naturalidade}' WHERE id = {id}";
+            var sqlNat = $"select n.id from naturalidades n where n.descricao = '{naturalidade}'";
             using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConnectionString());
+
+            var sql = $"UPDATE funcionarios SET nome_completo = '{nome}', data_nascimento= '{dataNascimento}', sexo='{sexo}', email='{email}', telefone ='{telefone}', telefone_contato= '{telefone_contato}', cep='{cep}',logradouro='{logradouro}',numero={numero},complemento='{bairro}',municipio='{municipio}',uf='{uf}',naturalidade= '{naturalidade}' WHERE id = {id}";     
+            
             var resultado = conexaoBd.Execute(sql);
             return resultado > 0;
         }
 
-        public IEnumerable<FuncionarioEntity> ObterTodos()
+        public IEnumerable<FuncionarioEntity> ObterTodosFuncionarios()
         {
-            var sql = "SELECT id, descricao FROM nacionalidades ORDER BY descricao ASC";
+            var sql = "SELECT * FROM funcionarios ORDER BY nome_completo ASC";
 
             using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConnectionString());
 

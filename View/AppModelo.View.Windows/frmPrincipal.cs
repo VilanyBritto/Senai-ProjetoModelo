@@ -1,4 +1,5 @@
 ﻿using AppModelo.View.Windows.Cadastro;
+using AppModelo.View.Windows.Listas;
 using System;
 using System.Windows.Forms;
 
@@ -54,9 +55,17 @@ namespace AppModelo.View.Windows
             form.Show();
         }
 
-        private void listaFuncionarioslToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        ///  Este método dentro do formulário principal, abre o formulário com a lista dos funcionários cadastrados.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        
+        private void listaFuncionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var form = new frmListaFuncionarios();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }

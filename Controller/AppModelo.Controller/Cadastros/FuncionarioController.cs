@@ -24,11 +24,11 @@ namespace AppModelo.Controller.Cadastros
             return resposta;
         }
 
-        public List<FuncionarioEntity> ObterTodosFuncionarios()
+        public IEnumerable<FuncionarioEntity> ObterTodosFuncionarios()
         {
             var repositorio = new FuncionarioRepository();
-            var resposta = repositorio.ObterTodos();
-            return (List<FuncionarioEntity>)resposta;
+            var resposta = repositorio.ObterTodosFuncionarios();
+            return (IEnumerable<FuncionarioEntity>)resposta;
         }
     }
 

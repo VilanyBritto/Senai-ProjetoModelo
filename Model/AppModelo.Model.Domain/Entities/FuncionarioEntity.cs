@@ -9,11 +9,11 @@ namespace AppModelo.Model.Domain.Entities
     {
         public int Id { get; set; }
         public string Nome_Completo { get; set; }
-        public DateTime Data_Nascimento { get; set; }
-        public bool Sexo { get; set; }
+        public DateTime? Data_Nascimento { get; set; }
+        public char Sexo { get; set; }
         public string Cpf { get; set; }
-        public string Nacionalidade { get; set; }
-        public string Naturalidade { get; set; }
+        public  int Nacionalidade { get; set; }
+        public int Naturalidade { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
         public string Telefone_Contato { get; set; }

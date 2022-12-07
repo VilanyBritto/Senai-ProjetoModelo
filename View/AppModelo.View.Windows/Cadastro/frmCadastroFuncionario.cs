@@ -1,9 +1,13 @@
 ﻿using AppModelo.Controller.Cadastros;
 using AppModelo.Controller.External;
+using AppModelo.Model.Domain.Entities;
 using AppModelo.Model.Domain.Validators;
 using AppModelo.View.Windows.Helpers;
+using AppModelo.View.Windows.Listas;
 using System;
 using System.ComponentModel;
+using System.Data.SqlClient;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -213,13 +217,12 @@ namespace AppModelo.View.Windows.Cadastro
             var atualizarDado = _funcionarioController.AtualizarCadastroFuncionario(
             int.Parse(txtId.Text), txtNome.Text, DateTime.Parse(txtDataNascimento.Text), sexo, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text,
             txtCep.Text, txtEnderecoLogradouro.Text, int.Parse(txtEnderecoNumero.Text), txtEnderecoComplemento.Text, txtEnderecoBairro.Text,
-            txtEnderecoMunicipio.Text, txtEnderecoUf.Text, cmbNaturalidade.SelectedIndex);
+            txtEnderecoMunicipio.Text, txtEnderecoUf.Text, 2);
                
 
             if (atualizarDado = true)
             {
-                MessageBox.Show("Dado atualizado com sucesso", "Sucesso ao atualizar!" + MessageBoxIcon.Information + MessageBoxButtons.OK);
-                
+                MessageBox.Show("Dado atualizado com sucesso", "Sucesso ao atualizar!" + MessageBoxIcon.Information + MessageBoxButtons.OK);           
             }
 
             else
@@ -228,6 +231,53 @@ namespace AppModelo.View.Windows.Cadastro
             }
         }
 
-       
+        /// <summary>
+        /// Este método, dentro do formulário de cadastro do frmCadastroFuncionario.cs abre o formulário com a lista dos funcionários cadastrados .
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTodosFuncionarios_Click(object sender, EventArgs e)
+        {
+            var form = new frmListaFuncionarios();
+            form.MdiParent = this;
+            form.Show();
+        }
+        /// <summary>
+        /// Esse metodo carrega o formulario com a relação de funcionarios para possivel pesquisa. Após carregado o formulario e selecionado um registro do datagrid
+        /// é instancia um objeto funionario para que os dados sejam carregados no formulario de edição do cadastro.
+        /// a condição if e else do campo sexo lê o campo do bando de dados e seta o radio buton de acordo com o valor registrado no banco de dados;
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnPesquisarIdFuncionario_Click(object sender, EventArgs e)
+        {
+            frmListaFuncionarios f = new frmListaFuncionarios();
+            f.ShowDialog();
+            txtId.Text = f.id.ToString();
+            txtNome.Text = f.funcionario.Nome_Completo;
+            txtDataNascimento.Text = f.funcionario.Data_Nascimento.ToString();
+            txtCpf.Text = f.funcionario.Cpf;
+            txtEmail.Text = f.funcionario.Email;
+            txtEnderecoLogradouro.Text = f.funcionario.Logradouro;
+            txtEnderecoMunicipio.Text = f.funcionario.Municipio;
+            txtTelefone.Text = f.funcionario.Telefone;
+            txtTelefoneContato.Text = f.funcionario.Telefone_Contato;
+            txtEnderecoNumero.Text = f.funcionario.Numero.ToString();
+            txtEnderecoComplemento.Text = f.funcionario.Complemento;
+            txtCep.Text = f.funcionario.Cep;
+            txtEnderecoBairro.Text = f.funcionario.Bairro;
+            txtEnderecoUf.Text = f.funcionario.Uf;
+            if (f.funcionario.Sexo == 'M')
+            {
+                rbFeminino.Checked = false;
+                rbMasculino.Checked = true;
+            }
+            else
+            {
+                rbFeminino.Checked = true;
+                rbMasculino.Checked = false;
+            }
+
+        }
     }
 }
