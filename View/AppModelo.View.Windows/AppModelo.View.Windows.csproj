@@ -85,6 +85,12 @@
     </Compile>
     <Compile Include="Helpers\CharEhNumero.cs" />
     <Compile Include="Helpers\Componentes.cs" />
+    <Compile Include="Listas\frmListaFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listas\frmListaFuncionarios.Designer.cs">
+      <DependentUpon>frmListaFuncionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Cadastro\frmCadastroFuncionario.resx">
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecuperarSenha.resx">
       <DependentUpon>frmRecuperarSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listas\frmListaFuncionarios.resx">
+      <DependentUpon>frmListaFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
