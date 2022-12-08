@@ -102,8 +102,8 @@
             // listaFuncionariosToolStripMenuItem
             // 
             this.listaFuncionariosToolStripMenuItem.Name = "listaFuncionariosToolStripMenuItem";
-            this.listaFuncionariosToolStripMenuItem.Size = new System.Drawing.Size(261, 30);
-            this.listaFuncionariosToolStripMenuItem.Text = "Lista de Funcionários";
+            this.listaFuncionariosToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
+            this.listaFuncionariosToolStripMenuItem.Text = "Funcionários Cadastrados";
             this.listaFuncionariosToolStripMenuItem.Click += new System.EventHandler(this.listaFuncionariosToolStripMenuItem_Click);
             // 
             // panel1
