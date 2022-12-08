@@ -376,6 +376,7 @@
             this.cmbNaturalidade.Size = new System.Drawing.Size(121, 33);
             this.cmbNaturalidade.TabIndex = 5;
             this.cmbNaturalidade.Tag = "Obrigatorio";
+            this.cmbNaturalidade.SelectedIndexChanged += new System.EventHandler(this.cmbNaturalidade_SelectedIndexChanged);
             // 
             // txtTelefoneContato
             // 
@@ -513,6 +514,7 @@
             this.Name = "frmCadastroFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadastroFuncionario";
+            this.Load += new System.EventHandler(this.frmCadastroFuncionario_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

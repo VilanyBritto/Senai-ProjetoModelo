@@ -119,5 +119,10 @@ namespace AppModelo.View.Windows.Cadastro
             gvNaturalidades.DataSource = null;
             gvNaturalidades.DataSource = _naturalidadeController.ObterTodasNaturalidades();
         }
+
+        private void frmNaturalidades_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

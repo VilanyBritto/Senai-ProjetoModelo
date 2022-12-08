@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace AppModelo.View.Windows.Cadastro
 {
@@ -24,6 +25,7 @@ namespace AppModelo.View.Windows.Cadastro
         private FuncionarioController _funcionarioController = new FuncionarioController();
         private NacionalidadeController _nacionalidadeController = new NacionalidadeController();
         private NaturalidadeController _naturalidadeController = new NaturalidadeController();
+        int codNaturalidade { get; set; }
 
 
         /// <summary>
@@ -217,7 +219,7 @@ namespace AppModelo.View.Windows.Cadastro
             var atualizarDado = _funcionarioController.AtualizarCadastroFuncionario(
             int.Parse(txtId.Text), txtNome.Text, DateTime.Parse(txtDataNascimento.Text), sexo, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text,
             txtCep.Text, txtEnderecoLogradouro.Text, int.Parse(txtEnderecoNumero.Text), txtEnderecoComplemento.Text, txtEnderecoBairro.Text,
-            txtEnderecoMunicipio.Text, txtEnderecoUf.Text, 2);
+            txtEnderecoMunicipio.Text, txtEnderecoUf.Text, codNaturalidade);
                
 
             if (atualizarDado = true)
@@ -277,7 +279,40 @@ namespace AppModelo.View.Windows.Cadastro
                 rbFeminino.Checked = true;
                 rbMasculino.Checked = false;
             }
+            var naturalidades = _naturalidadeController.ObterTodasNaturalidades().ToList();
+            if (cmbNaturalidade.SelectedIndex > -1)
+            {
+                var item = (from i in naturalidades
+                            where i.Id == f.funcionario.Naturalidade
+                            select i.Descricao).ToList();
+                cmbNaturalidade.Text = item.FirstOrDefault();
+            }
 
+        }
+
+        private void frmCadastroFuncionario_Load(object sender, EventArgs e)
+        {
+            var naturalidades = _naturalidadeController.ObterTodasNaturalidades().ToList();
+            if (cmbNaturalidade.SelectedIndex > -1)
+            {
+                var item = (from i in naturalidades
+                            where i.Descricao == cmbNaturalidade.Text
+                            select i.Descricao).ToList();
+                cmbNaturalidade.Text = item.FirstOrDefault();
+            }
+        }
+
+        private void cmbNaturalidade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var naturalidades = _naturalidadeController.ObterTodasNaturalidades().ToList();
+            if (cmbNacionalidade.SelectedIndex > -1)
+            {
+                var item = (from i in naturalidades
+                           where i.Descricao == cmbNaturalidade.Text
+                           select i.Id).ToList();
+                codNaturalidade = item.FirstOrDefault();
+            }
+           
         }
     }
 }

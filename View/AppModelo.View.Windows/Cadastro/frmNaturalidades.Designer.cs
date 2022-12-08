@@ -191,6 +191,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmNaturalidades";
             this.Text = "Naturalidades";
+            this.Load += new System.EventHandler(this.frmNaturalidades_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvNaturalidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
